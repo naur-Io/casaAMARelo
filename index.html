@@ -1,0 +1,2329 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1B5E3A">
+  <meta name="description" content="CasAMARelo Hostel - Seu refúgio a 2 minutos da Praia da Barra, em Salvador. Aconchego, conexão e a melhor localização da cidade.">
+  <title>CasAMARelo Hostel — Barra · Salvador · Bahia</title>
+
+  <!-- Google Fonts Preconnect & Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Passion+One:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       1. DESIGN SYSTEM TOKENS & CSS VARIABLES
+       ========================================================================== */
+    :root {
+      /* Paleta Primária */
+      --verde-mata:       #1B5E3A;
+      --amarelo-dende:    #E8A824;
+      --amarelo-claro:    #F5C34B;
+      --vermelho-terra:   #B22D30;
+      --creme-areia:      #F5E6C8;
+      --azul-colonial:    #2D6A7A;
+      --laranja-tropical: #E87C2E;
+
+      /* Paleta Estendida (Suporte) */
+      --verde-folha:      #2E7D4F;
+      --vermelho-escuro:  #8B1A1D;
+      --creme-escuro:     #E8D5B0;
+      --verde-azulejo:    #245C3E;
+      --texto-escuro:     #1A1A1A;
+      --branco:           #FDFBF7;
+
+      /* Semântica de Cores */
+      --surface-primary:   var(--creme-areia);
+      --surface-secondary: var(--verde-mata);
+      --surface-accent:    var(--vermelho-terra);
+      --surface-card:      var(--branco);
+
+      --text-on-light:     var(--verde-mata);
+      --text-on-dark:      var(--creme-areia);
+      --text-on-accent:    var(--creme-areia);
+      --text-muted:        #5C7A65;
+
+      --interactive:       var(--vermelho-terra);
+      --interactive-hover: var(--vermelho-escuro);
+      --focus-ring:        var(--laranja-tropical);
+
+      --accent-warm:       var(--amarelo-dende);
+      --accent-cool:       var(--azul-colonial);
+      --accent-highlight:  var(--laranja-tropical);
+
+      /* Tipografia */
+      --font-display: 'Passion One', cursive, sans-serif;
+      --font-body:    'Lora', serif;
+      --font-ui:      'Inter', sans-serif;
+
+      /* Escala Tipográfica (Desktop Baseline) */
+      --text-hero:     4rem;       /* 64px */
+      --text-h1:       3rem;       /* 48px */
+      --text-h2:       2rem;       /* 32px */
+      --text-h3:       1.5rem;     /* 24px */
+      --text-eyebrow:  0.875rem;   /* 14px */
+      --text-body:     1.0625rem;  /* 17px */
+      --text-body-sm:  1rem;       /* 16px */
+      --text-label:    0.8125rem;  /* 13px */
+      --text-caption:  0.75rem;    /* 12px */
+
+      /* Escala de Espaçamento */
+      --space-2xs: 4px;
+      --space-xs:  8px;
+      --space-sm:  12px;
+      --space-md:  16px;
+      --space-lg:  24px;
+      --space-xl:  32px;
+      --space-2xl: 48px;
+      --space-3xl: 64px;
+      --space-4xl: 96px;
+      --space-5xl: 128px;
+
+      /* Bordas e Radii (Menos Arredondadas) */
+      --radius-none:   0;
+      --radius-sm:     4px;
+      --radius-md:     8px;
+      --radius-lg:     12px;
+      --radius-pill:   24px;
+      --radius-circle: 50%;
+
+      /* Sombras */
+      --shadow-card:       0 2px 12px rgba(27, 94, 58, 0.08);
+      --shadow-card-hover: 0 8px 24px rgba(27, 94, 58, 0.14);
+      --shadow-float:      0 12px 40px rgba(27, 94, 58, 0.18);
+      --shadow-sticker:    2px 4px 0px rgba(0, 0, 0, 0.12);
+
+      /* Bordas */
+      --border-subtle: 1px solid var(--creme-escuro);
+      --border-accent: 2px solid var(--amarelo-dende);
+      --border-dashed: 2px dashed var(--verde-mata);
+
+      /* Animações e Transições */
+      --ease-out:      cubic-bezier(0.25, 0, 0.35, 1);
+      --ease-bounce:   cubic-bezier(0.34, 1.56, 0.64, 1);
+      --duration-fast: 150ms;
+      --duration-base: 250ms;
+      --duration-slow: 400ms;
+    }
+
+    /* Responsividade da Escala Tipográfica */
+    @media (max-width: 768px) {
+      :root {
+        --text-hero: 3rem;       /* 48px */
+        --text-h1:   2.25rem;    /* 36px */
+        --text-h2:   1.625rem;   /* 26px */
+        --text-h3:   1.375rem;   /* 22px */
+        --text-body: 1rem;       /* 16px */
+      }
+    }
+
+    @media (max-width: 480px) {
+      :root {
+        --text-hero: 2.25rem;    /* 36px */
+        --text-h1:   1.75rem;    /* 28px */
+        --text-h2:   1.375rem;   /* 22px */
+        --text-h3:   1.25rem;    /* 20px */
+        --text-body: 1rem;       /* 16px */
+      }
+    }
+
+    /* ==========================================================================
+       2. RESET & STYLES BASE
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: var(--text-body);
+      line-height: 1.7;
+      color: var(--text-on-light);
+      background-color: var(--surface-primary);
+      overflow-x: hidden;
+    }
+
+    img, svg {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, select, textarea {
+      font: inherit;
+    }
+
+    /* Accessibility Focus States */
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible,
+    [tabindex]:focus-visible {
+      outline: 3px solid var(--focus-ring);
+      outline-offset: 3px;
+      border-radius: var(--radius-sm);
+    }
+
+    :focus:not(:focus-visible) {
+      outline: none;
+    }
+
+    /* Skip Link */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: var(--space-md);
+      z-index: 9999;
+      padding: var(--space-sm) var(--space-md);
+      background: var(--verde-mata);
+      color: var(--creme-areia);
+      font-family: var(--font-ui);
+      font-size: 14px;
+      font-weight: 700;
+      border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+      text-decoration: none;
+      transition: top var(--duration-fast) ease;
+    }
+
+    .skip-link:focus {
+      top: 0;
+    }
+
+    /* Visually Hidden Utility */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* ==========================================================================
+       3. CONTAINER & LAYOUT STRUCTURES
+       ========================================================================== */
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin-inline: auto;
+      padding-inline: var(--space-lg);
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding-inline: var(--space-md);
+      }
+    }
+
+    .section {
+      padding: var(--space-4xl) 0;
+      position: relative;
+    }
+
+    @media (max-width: 768px) {
+      .section {
+        padding: var(--space-3xl) 0;
+      }
+    }
+
+    .section--verde {
+      background: var(--verde-mata);
+      color: var(--creme-areia);
+    }
+
+    .section--creme {
+      background: var(--creme-areia);
+      color: var(--verde-mata);
+    }
+
+    .section--vermelho {
+      background: var(--vermelho-terra);
+      color: var(--creme-areia);
+    }
+
+    .section-header {
+      max-width: 640px;
+      margin-bottom: var(--space-2xl);
+    }
+
+    .section-header--center {
+      text-align: center;
+      margin-inline: auto;
+    }
+
+    .eyebrow {
+      font-family: var(--font-ui);
+      font-size: var(--text-eyebrow);
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--amarelo-dende);
+      display: inline-block;
+      margin-bottom: var(--space-xs);
+    }
+
+    .section--creme .eyebrow {
+      color: var(--azul-colonial);
+    }
+
+    .heading-display {
+      font-family: var(--font-display);
+      font-size: var(--text-h1);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--amarelo-dende);
+    }
+
+    .section--creme .heading-display {
+      color: var(--verde-mata);
+    }
+
+    .section--vermelho .heading-display {
+      color: var(--creme-areia);
+    }
+
+    .section-subtitle {
+      font-family: var(--font-body);
+      font-size: var(--text-body);
+      margin-top: var(--space-sm);
+      opacity: 0.95;
+    }
+
+    /* Grids */
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-2xl);
+    }
+
+    @media (min-width: 768px) {
+      .grid-2col {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+      }
+    }
+
+    .grid-3col {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-lg);
+    }
+
+    @media (min-width: 640px) {
+      .grid-3col {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .grid-3col {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* Grain Overlay Effect */
+    .grain {
+      position: relative;
+    }
+
+    .grain::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.04;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 128px;
+      mix-blend-mode: multiply;
+    }
+
+    /* Divisor de Azulejo */
+    .divider-azulejo {
+      width: 100%;
+      height: 6px;
+      background: repeating-linear-gradient(
+        90deg,
+        var(--amarelo-dende) 0,
+        var(--amarelo-dende) 16px,
+        var(--vermelho-terra) 16px,
+        var(--vermelho-terra) 32px,
+        var(--verde-mata) 32px,
+        var(--verde-mata) 48px,
+        var(--azul-colonial) 48px,
+        var(--azul-colonial) 64px
+      );
+    }
+
+    /* ==========================================================================
+       4. COMPONENTES (BOTÕES, BADGES, CARDS, FAQ)
+       ========================================================================== */
+    /* Botão Primário */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-xs);
+      padding: var(--space-md) var(--space-xl);
+      background: var(--vermelho-terra);
+      color: var(--creme-areia);
+      font-family: var(--font-ui);
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      border: none;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: background var(--duration-base) ease, transform var(--duration-fast) ease, box-shadow var(--duration-base) ease;
+      box-shadow: var(--shadow-sticker);
+      min-height: 48px;
+      min-width: 160px;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .btn-primary:hover {
+      background: var(--vermelho-escuro);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(178, 45, 48, 0.25);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+
+    /* Botão Secundário */
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-xs);
+      padding: var(--space-md) var(--space-xl);
+      background: transparent;
+      color: var(--verde-mata);
+      font-family: var(--font-ui);
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      border: 2px solid var(--verde-mata);
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: all var(--duration-base) ease;
+      min-height: 48px;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .section--verde .btn-secondary,
+    .hero .btn-secondary {
+      background: #FFFFFF;
+      color: var(--verde-mata);
+      border: 2px solid #FFFFFF;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .section--vermelho .btn-secondary {
+      color: var(--creme-areia);
+      border-color: var(--creme-areia);
+    }
+
+    .btn-secondary:hover {
+      background: var(--verde-mata);
+      color: var(--creme-areia);
+    }
+
+    .section--verde .btn-secondary:hover,
+    .hero .btn-secondary:hover {
+      background: var(--amarelo-dende);
+      color: var(--verde-mata);
+      border-color: var(--amarelo-dende);
+      transform: translateY(-2px);
+    }
+
+    .section--vermelho .btn-secondary:hover {
+      background: var(--creme-areia);
+      color: var(--vermelho-terra);
+    }
+
+    /* Badges / Selos */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2xs);
+      padding: var(--space-xs) var(--space-md);
+      background: var(--amarelo-dende);
+      color: var(--verde-mata);
+      font-family: var(--font-ui);
+      font-size: var(--text-label);
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: var(--radius-pill);
+      white-space: nowrap;
+    }
+
+    .badge--score {
+      background: var(--verde-mata);
+      color: var(--creme-areia);
+      font-size: 14px;
+      padding: var(--space-xs) var(--space-sm);
+      border-radius: var(--radius-sm);
+    }
+
+    .badge--sticker {
+      background: var(--laranja-tropical);
+      color: var(--branco);
+      border-radius: var(--radius-pill);
+      transform: rotate(-3deg);
+      box-shadow: var(--shadow-sticker);
+    }
+
+    .badge--room-type {
+      background: var(--creme-areia);
+      color: var(--vermelho-terra);
+      border: 1.5px solid var(--vermelho-terra);
+    }
+
+    .hero-badge-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      background: rgba(15, 35, 22, 0.70);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: var(--radius-pill);
+      font-family: var(--font-ui);
+      font-size: 14px;
+      font-weight: 700;
+      color: #FFFFFF;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+    }
+
+    /* Card de Quarto */
+    .room-card {
+      display: flex;
+      flex-direction: column;
+      background: var(--surface-card);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      transition: box-shadow var(--duration-base) ease, transform var(--duration-base) ease;
+      color: var(--texto-escuro);
+      height: 100%;
+    }
+
+    .room-card:hover {
+      box-shadow: var(--shadow-card-hover);
+      transform: translateY(-4px);
+    }
+
+    .room-card__header-img {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background-color: var(--creme-escuro);
+    }
+
+    .room-card__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--duration-slow) ease;
+    }
+
+    .room-card:hover .room-card__image {
+      transform: scale(1.05);
+    }
+
+    .room-card__type-badge {
+      position: absolute;
+      top: var(--space-md);
+      left: var(--space-md);
+      z-index: 2;
+    }
+
+    .room-card__body {
+      padding: var(--space-xl);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+      flex: 1;
+    }
+
+    .room-card__name {
+      font-family: var(--font-display);
+      font-size: var(--text-h3);
+      color: var(--verde-mata);
+      line-height: 1.2;
+    }
+
+    .room-card__meta-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2xs);
+      font-family: var(--font-ui);
+      font-size: var(--text-body-sm);
+      color: var(--verde-mata);
+      font-weight: 600;
+    }
+
+    .room-card__highlight {
+      font-family: var(--font-body);
+      font-size: var(--text-body-sm);
+      font-style: italic;
+      color: var(--vermelho-terra);
+      font-weight: 600;
+    }
+
+    .room-card__description {
+      font-family: var(--font-body);
+      font-size: var(--text-body-sm);
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .room-card__amenities-title {
+      font-family: var(--font-ui);
+      font-size: var(--text-label);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--verde-mata);
+      font-weight: 700;
+      margin-top: var(--space-2xs);
+    }
+
+    .room-card__amenities {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+    }
+
+    .room-card__amenities li {
+      font-family: var(--font-ui);
+      font-size: var(--text-caption);
+      color: var(--verde-mata);
+      background: rgba(27, 94, 58, 0.08);
+      padding: var(--space-2xs) var(--space-xs);
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+    }
+
+    .room-card__footer {
+      padding: 0 var(--space-xl) var(--space-xl);
+      margin-top: auto;
+    }
+
+    .room-card__footer .btn-primary {
+      width: 100%;
+    }
+
+    /* Cards de Diferenciais */
+    .feature-card {
+      background: var(--surface-card);
+      padding: var(--space-xl);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-card);
+      border-top: 4px solid var(--amarelo-dende);
+      transition: transform var(--duration-base) ease, box-shadow var(--duration-base) ease;
+      height: 100%;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-card-hover);
+    }
+
+    .feature-card__icon {
+      font-size: 2.5rem;
+      margin-bottom: var(--space-md);
+      display: inline-block;
+    }
+
+    .feature-card__title {
+      font-family: var(--font-display);
+      font-size: var(--text-h3);
+      color: var(--verde-mata);
+      margin-bottom: var(--space-xs);
+    }
+
+    .feature-card__text {
+      font-family: var(--font-body);
+      font-size: var(--text-body-sm);
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Card Depoimento / Testimonial */
+    .testimonial {
+      padding: var(--space-xl);
+      background: var(--surface-card);
+      border-left: 4px solid var(--amarelo-dende);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      box-shadow: var(--shadow-card);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    .testimonial__quote {
+      font-family: var(--font-body);
+      font-size: var(--text-body);
+      font-style: italic;
+      color: var(--text-on-light);
+      line-height: 1.7;
+      margin-bottom: var(--space-lg);
+      position: relative;
+    }
+
+    .testimonial__quote::before {
+      content: '"';
+      font-family: var(--font-display);
+      font-size: 48px;
+      color: var(--amarelo-dende);
+      line-height: 0;
+      vertical-align: -16px;
+      margin-right: var(--space-2xs);
+    }
+
+    .testimonial__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: auto;
+      padding-top: var(--space-md);
+      border-top: 1px solid var(--creme-escuro);
+    }
+
+    .testimonial__author {
+      font-family: var(--font-ui);
+      font-size: var(--text-body-sm);
+      font-weight: 700;
+      color: var(--verde-mata);
+    }
+
+    .testimonial__score {
+      font-family: var(--font-ui);
+      font-size: var(--text-caption);
+      font-weight: 700;
+      color: var(--creme-areia);
+      background: var(--verde-mata);
+      padding: 2px 8px;
+      border-radius: var(--radius-sm);
+    }
+
+    /* Acordeão / FAQ */
+    .accordion-list {
+      max-width: 800px;
+      margin-inline: auto;
+    }
+
+    .accordion-item {
+      border-bottom: var(--border-subtle);
+    }
+
+    .accordion-trigger {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: var(--space-lg) 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-size: var(--text-body);
+      font-weight: 600;
+      color: var(--verde-mata);
+      text-align: left;
+      min-height: 48px;
+      transition: color var(--duration-fast) ease;
+    }
+
+    .accordion-trigger:hover {
+      color: var(--vermelho-terra);
+    }
+
+    .accordion-trigger__icon {
+      width: 24px;
+      height: 24px;
+      transition: transform var(--duration-base) ease;
+      color: var(--vermelho-terra);
+      flex-shrink: 0;
+      margin-left: var(--space-md);
+    }
+
+    .accordion-trigger[aria-expanded="true"] .accordion-trigger__icon {
+      transform: rotate(45deg);
+    }
+
+    .accordion-content {
+      padding: 0 0 var(--space-lg) 0;
+      font-family: var(--font-body);
+      font-size: var(--text-body-sm);
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .accordion-content[hidden] {
+      display: none;
+    }
+
+    /* ==========================================================================
+       5. HEADER & NAVIGATION
+       ========================================================================== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: var(--verde-mata);
+      color: var(--creme-areia);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+    }
+
+    .brand-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-logo {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      color: var(--amarelo-dende);
+      line-height: 1;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-tagline {
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--creme-areia);
+      opacity: 0.9;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xl);
+    }
+
+    .nav-list {
+      display: flex;
+      align-items: center;
+      gap: var(--space-lg);
+      list-style: none;
+    }
+
+    .nav-link {
+      font-family: var(--font-ui);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--creme-areia);
+      transition: color var(--duration-fast) ease;
+      padding: var(--space-xs) 0;
+    }
+
+    .nav-link:hover {
+      color: var(--amarelo-dende);
+    }
+
+    .btn-nav {
+      min-height: 36px;
+      min-width: auto;
+      padding: 6px 16px;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      box-shadow: none;
+      border-radius: var(--radius-sm);
+    }
+
+    /* Mobile Hamburger Menu */
+    .menu-toggle {
+      display: none;
+      background: transparent;
+      border: none;
+      color: var(--creme-areia);
+      cursor: pointer;
+      padding: var(--space-xs);
+      min-height: 44px;
+      min-width: 44px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .menu-toggle svg {
+      width: 28px;
+      height: 28px;
+      fill: currentColor;
+    }
+
+    @media (max-width: 960px) {
+      .menu-toggle {
+        display: flex;
+      }
+
+      .nav-menu {
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background-color: var(--verde-mata);
+        flex-direction: column;
+        align-items: stretch;
+        padding: var(--space-xl) var(--space-lg);
+        gap: var(--space-lg);
+        border-top: 1px solid rgba(245, 230, 200, 0.1);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        display: none;
+      }
+
+      .nav-menu.is-active {
+        display: flex;
+      }
+
+      .nav-list {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        gap: var(--space-md);
+      }
+
+      .nav-link {
+        font-size: 18px;
+        width: 100%;
+        display: block;
+        padding: var(--space-xs) 0;
+      }
+
+      .btn-nav {
+        width: 100%;
+      }
+    }
+
+    /* ==========================================================================
+       6. HERO SECTION
+       ========================================================================== */
+    .hero {
+      position: relative;
+      padding: var(--space-4xl) 0 var(--space-5xl);
+      background: var(--verde-mata);
+      color: var(--creme-areia);
+      overflow: hidden;
+    }
+
+    .hero-video-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .hero-video-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(15, 35, 22, 0.40) 0%,
+        rgba(27, 94, 58, 0.22) 50%,
+        rgba(20, 50, 60, 0.35) 100%
+      );
+      z-index: 1;
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-content {
+      max-width: 760px;
+    }
+
+    .hero-headline {
+      font-family: var(--font-display);
+      font-size: var(--text-hero);
+      line-height: 1.05;
+      color: var(--amarelo-dende);
+      margin-bottom: var(--space-lg);
+      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.85), 0 1px 4px rgba(0, 0, 0, 0.95);
+    }
+
+    .hero-subheadline {
+      font-family: var(--font-body);
+      font-size: 1.25rem;
+      line-height: 1.6;
+      color: #FFFFFF;
+      margin-bottom: var(--space-2xl);
+      max-width: 62ch;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.85), 0 1px 3px rgba(0, 0, 0, 0.95);
+      font-weight: 600;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+      margin-bottom: var(--space-2xl);
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      padding-top: var(--space-lg);
+      border-top: 1px solid rgba(245, 230, 200, 0.2);
+    }
+
+    /* ==========================================================================
+       7. SOBRE NÓS SECTION
+       ========================================================================== */
+    .about-image-wrapper {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-float);
+    }
+
+    .about-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .about-paragraphs {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+      margin-bottom: var(--space-xl);
+    }
+
+    /* ==========================================================================
+       8. COMODIDADES / ESTRUTURA SECTION
+       ========================================================================== */
+    .amenities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-md);
+    }
+
+    .amenity-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      padding: var(--space-lg);
+      background: rgba(253, 251, 247, 0.08);
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(245, 230, 200, 0.15);
+      font-family: var(--font-body);
+      font-size: var(--text-body);
+      color: var(--creme-areia);
+    }
+
+    .amenity-item__icon {
+      font-size: 1.75rem;
+      flex-shrink: 0;
+    }
+
+    /* ==========================================================================
+       9. LOCALIZAÇÃO SECTION
+       ========================================================================== */
+    .location-address-box {
+      background: var(--surface-card);
+      padding: var(--space-xl);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-card);
+      margin-bottom: var(--space-xl);
+      border-left: 4px solid var(--azul-colonial);
+    }
+
+    .location-address {
+      font-family: var(--font-ui);
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--verde-mata);
+      margin-bottom: var(--space-xs);
+    }
+
+    .location-cep {
+      font-family: var(--font-ui);
+      font-size: var(--text-body-sm);
+      color: var(--text-muted);
+    }
+
+    .proximity-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-xl);
+    }
+
+    .proximity-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: var(--space-xs);
+      border-bottom: 1px dashed var(--creme-escuro);
+      font-family: var(--font-body);
+      font-size: var(--text-body);
+    }
+
+    .proximity-name {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+      color: var(--verde-mata);
+      font-weight: 600;
+    }
+
+    .proximity-dist {
+      font-family: var(--font-ui);
+      font-size: var(--text-body-sm);
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .location-footnote {
+      font-family: var(--font-ui);
+      font-size: var(--text-body-sm);
+      font-weight: 600;
+      color: var(--vermelho-terra);
+      margin-bottom: var(--space-lg);
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+
+    .map-container {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      position: relative;
+      aspect-ratio: 4 / 3;
+      background: var(--creme-escuro);
+    }
+
+    .map-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ==========================================================================
+       10. AVALIAÇÕES SECTION
+       ========================================================================== */
+    .reviews-summary-badge {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-2xs);
+      padding: var(--space-lg) var(--space-2xl);
+      background: rgba(253, 251, 247, 0.1);
+      border: 2px solid var(--amarelo-dende);
+      border-radius: var(--radius-md);
+      margin-bottom: var(--space-2xl);
+    }
+
+    .reviews-score {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      color: var(--amarelo-dende);
+      line-height: 1;
+    }
+
+    .reviews-source {
+      font-family: var(--font-ui);
+      font-size: var(--text-caption);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--creme-areia);
+    }
+
+    /* ==========================================================================
+       11. CTA FINAL SECTION
+       ========================================================================== */
+    .cta-final-box {
+      text-align: center;
+      max-width: 720px;
+      margin-inline: auto;
+    }
+
+    .cta-final-badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--space-sm);
+      margin-top: var(--space-2xl);
+    }
+
+    /* ==========================================================================
+       12. FOOTER
+       ========================================================================== */
+    .site-footer {
+      background-color: var(--verde-mata);
+      color: var(--creme-areia);
+      padding: var(--space-4xl) 0 var(--space-2xl);
+      border-top: 1px solid rgba(245, 230, 200, 0.15);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-2xl);
+      margin-bottom: var(--space-3xl);
+    }
+
+    @media (min-width: 768px) {
+      .footer-grid {
+        grid-template-columns: 1.5fr 1fr 1.5fr;
+      }
+    }
+
+    .footer-col-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--amarelo-dende);
+      margin-bottom: var(--space-md);
+    }
+
+    .footer-brand-name {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      color: var(--amarelo-dende);
+      line-height: 1;
+      margin-bottom: var(--space-xs);
+    }
+
+    .footer-brand-sub {
+      font-family: var(--font-ui);
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: var(--space-md);
+      opacity: 0.9;
+    }
+
+    .footer-quote {
+      font-family: var(--font-body);
+      font-style: italic;
+      opacity: 0.85;
+    }
+
+    .footer-nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+
+    .footer-nav-link {
+      font-family: var(--font-ui);
+      font-size: 15px;
+      transition: color var(--duration-fast) ease;
+    }
+
+    .footer-nav-link:hover {
+      color: var(--amarelo-dende);
+    }
+
+    .footer-contact-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+      font-family: var(--font-ui);
+      font-size: 15px;
+    }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-xs);
+    }
+
+    .footer-bottom {
+      padding-top: var(--space-lg);
+      border-top: 1px solid rgba(245, 230, 200, 0.1);
+      text-align: center;
+      font-family: var(--font-ui);
+      font-size: var(--text-caption);
+      opacity: 0.75;
+    }
+
+    /* ==========================================================================
+       13. BOTÃO FLUTUANTE WHATSAPP (FAB)
+       ========================================================================== */
+    .fab-whatsapp {
+      position: fixed;
+      bottom: var(--space-lg);
+      right: var(--space-lg);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+      padding: var(--space-md) var(--space-xl);
+      background: var(--vermelho-terra);
+      color: var(--creme-areia);
+      font-family: var(--font-ui);
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      border: none;
+      border-radius: var(--radius-pill);
+      box-shadow: var(--shadow-float);
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform var(--duration-base) ease, box-shadow var(--duration-base) ease, background var(--duration-fast) ease;
+      min-height: 48px;
+    }
+
+    .fab-whatsapp:hover {
+      background: var(--vermelho-escuro);
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 16px 48px rgba(178, 45, 48, 0.4);
+    }
+
+    .fab-whatsapp__icon {
+      width: 22px;
+      height: 22px;
+      fill: currentColor;
+    }
+
+    @media (max-width: 480px) {
+      .fab-whatsapp {
+        padding: 0;
+        width: 56px;
+        height: 56px;
+        border-radius: var(--radius-circle);
+        bottom: var(--space-md);
+        right: var(--space-md);
+        justify-content: center;
+      }
+
+      .fab-whatsapp span {
+        display: none;
+      }
+
+      .fab-whatsapp__icon {
+        width: 28px;
+        height: 28px;
+      }
+    }
+
+    /* ==========================================================================
+       14. ANIMATION OBSERVER & REDUCED MOTION
+       ========================================================================== */
+    [data-animate] {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity var(--duration-slow) var(--ease-out), transform var(--duration-slow) var(--ease-out);
+    }
+
+    [data-animate].is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    [data-animate-delay="1"] { transition-delay: 100ms; }
+    [data-animate-delay="2"] { transition-delay: 200ms; }
+    [data-animate-delay="3"] { transition-delay: 300ms; }
+
+    @media (prefers-reduced-motion: reduce) {
+      [data-animate] {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+      html {
+        scroll-behavior: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Skip Link para Acessibilidade por Teclado -->
+  <a class="skip-link" href="#main-content">Pular para o conteúdo principal</a>
+
+  <!-- ==========================================================================
+       HEADER & NAVEGAÇÃO
+       ========================================================================== -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="#" class="brand-group" aria-label="CasAMARelo Hostel - Página Inicial">
+        <span class="brand-logo">CasAMARelo</span>
+        <span class="brand-tagline">Hostel · Barra · Salvador</span>
+      </a>
+
+      <div class="nav-menu" id="main-nav" aria-label="Navegação principal">
+        <ul class="nav-list">
+          <li><a href="#sobre" class="nav-link">Sobre</a></li>
+          <li><a href="#quartos" class="nav-link">Quartos</a></li>
+          <li><a href="#estrutura" class="nav-link">Estrutura</a></li>
+          <li><a href="#localizacao" class="nav-link">Localização</a></li>
+          <li><a href="#avaliacoes" class="nav-link">Avaliações</a></li>
+          <li><a href="#voluntariado" class="nav-link">Voluntariado</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+          <li><a href="#contato" class="nav-link">Contato</a></li>
+        </ul>
+        <a href="#reservar" class="btn-primary btn-nav">Reservar Agora</a>
+      </div>
+
+      <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menu de navegação">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       MAIN CONTENT
+       ========================================================================== -->
+  <main id="main-content">
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero grain">
+      <!-- Background Video em Loop Infinito -->
+      <video class="hero-video-bg" autoplay loop muted playsinline aria-hidden="true" poster="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80">
+        <source src="hero video.mov" type="video/quicktime">
+        <source src="hero video.mov" type="video/mp4">
+      </video>
+      <div class="hero-video-overlay" aria-hidden="true"></div>
+
+      <div class="container">
+        <div class="hero-content" data-animate>
+          <h1 class="hero-headline">Sinta a Energia da Bahia</h1>
+          <p class="hero-subheadline">
+            Seu refúgio a 2 minutos da Praia da Barra, em Salvador.<br>
+            Aconchego, conexão e a melhor localização da cidade.
+          </p>
+          <div class="hero-ctas">
+            <a href="https://wa.me/5571999999999?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20uma%20reserva%20no%20CasAMARelo%20Hostel.%0APer%C3%ADodo%3A%20%5Bcheck-in%5D%20a%20%5Bcheck-out%5D.%0AQuarto%20de%20interesse%3A%20%5Btipo%5D.%0AN%C3%BAmero%20de%20h%C3%B3spedes%3A%20%5Bn%5D." target="_blank" rel="noopener noreferrer" class="btn-primary">
+              Reservar pelo WhatsApp
+            </a>
+            <a href="#quartos" class="btn-secondary">
+              Ver Quartos e Preços
+            </a>
+          </div>
+          <div class="hero-badges">
+            <span class="hero-badge-item">★ 8.6 Fabuloso — Booking.com</span>
+            <span class="hero-badge-item">📍 9.7 Localização</span>
+            <span class="hero-badge-item">📶 Wi-Fi Grátis</span>
+            <span class="hero-badge-item">☕ Café da Manhã Incluso</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIVISOR DE AZULEJO -->
+    <div class="divider-azulejo" aria-hidden="true"></div>
+
+    <!-- SOBRE NÓS SECTION -->
+    <section id="sobre" class="section section--creme">
+      <div class="container">
+        <div class="grid-2col">
+          <div data-animate>
+            <span class="eyebrow">Sobre a CasAMARelo</span>
+            <h2 class="heading-display" style="margin-bottom: var(--space-lg);">
+              Mais do que um hostel.<br>
+              Um pedaço da Bahia pra chamar de seu.
+            </h2>
+            <div class="about-paragraphs">
+              <p>
+                A CasAMARelo nasceu pra ser a casa que todo viajante
+                merece em Salvador — um lugar com alma baiana, quartos
+                confortáveis e aquele clima de "chega mais" que faz
+                qualquer um se sentir em casa.
+              </p>
+              <p>
+                Fica na Barra, o bairro mais icônico da cidade. Da nossa
+                porta até a areia são 2 minutos a pé. O Farol da Barra,
+                o pôr do sol mais famoso do Brasil, tá ali do lado.
+                E o melhor: tudo com o aconchego de quem te recebe
+                de braços abertos.
+              </p>
+              <p>
+                Aqui, viajante solo faz amizade no café da manhã, casal
+                descobre um cantinho com vista pro mar, e grupo de amigos
+                encontra o ponto de partida perfeito pra explorar Salvador.
+              </p>
+            </div>
+            <a href="#quartos" class="btn-primary">Conhecer Nossos Quartos</a>
+          </div>
+          <div class="about-image-wrapper" data-animate data-animate-delay="1">
+            <img src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80" alt="Foto do CasAMARelo Hostel em Salvador, Bahia" loading="lazy" width="800" height="600">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIVISOR DE AZULEJO -->
+    <div class="divider-azulejo" aria-hidden="true"></div>
+
+    <!-- QUARTOS / ACOMODAÇÕES SECTION -->
+    <section id="quartos" class="section section--verde">
+      <div class="container">
+        <div class="section-header section-header--center" data-animate>
+          <span class="eyebrow">Acomodações</span>
+          <h2 class="heading-display">Cada viajante, um quarto ideal.</h2>
+          <p class="section-subtitle">
+            Do dormitório social à suíte com vista pro mar —
+            escolha o seu jeito de viver Salvador.
+          </p>
+        </div>
+
+        <div class="grid-3col">
+          <!-- Card 1 — Dormitório Misto -->
+          <div class="room-card" data-animate data-animate-delay="1">
+            <div class="room-card__header-img">
+              <span class="badge badge--room-type room-card__type-badge">Econômico</span>
+              <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=600&q=80" alt="Foto do CasAMARelo Hostel em Salvador, Bahia" class="room-card__image" loading="lazy" width="600" height="450">
+            </div>
+            <div class="room-card__body">
+              <h3 class="room-card__name">Cama em Dormitório Misto</h3>
+              <div class="room-card__meta-list">
+                <span>Capacidade: 1 pessoa por cama</span>
+                <span>Cama: 1 beliche</span>
+              </div>
+              <p class="room-card__highlight">Ideal pra quem viaja solo e quer conhecer gente</p>
+              <p class="room-card__description">
+                Dormitório compartilhado com beliches confortáveis,
+                roupa de cama inclusa e armário individual. O jeito
+                mais social (e mais em conta) de curtir Salvador.
+              </p>
+              <span class="room-card__amenities-title">Incluso:</span>
+              <ul class="room-card__amenities">
+                <li>Roupa de cama e toalhas</li>
+                <li>Wi-Fi gratuito</li>
+                <li>Café da manhã</li>
+                <li>Armário individual</li>
+              </ul>
+            </div>
+            <div class="room-card__footer">
+              <a href="https://wa.me/5571999999999?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20uma%20reserva%20no%20CasAMARelo%20Hostel.%0APer%C3%ADodo%3A%20%5Bcheck-in%5D%20a%20%5Bcheck-out%5D.%0AQuarto%20de%20interesse%3A%20Cama%20em%20Dormit%C3%B3rio%20Misto.%0AN%C3%BAmero%20de%20h%C3%B3spedes%3A%20%5Bn%5D." target="_blank" rel="noopener noreferrer" class="btn-primary">Reservar Dormitório</a>
+            </div>
+          </div>
+
+          <!-- Card 2 — Dormitório 6 Camas -->
+          <div class="room-card" data-animate data-animate-delay="2">
+            <div class="room-card__header-img">
+              <span class="badge badge--room-type room-card__type-badge">Social</span>
+              <img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=600&q=80" alt="Foto do CasAMARelo Hostel em Salvador, Bahia" class="room-card__image" loading="lazy" width="600" height="450">
+            </div>
+            <div class="room-card__body">
+              <h3 class="room-card__name">Dormitório com 6 Camas</h3>
+              <div class="room-card__meta-list">
+                <span>Capacidade: 1 pessoa por cama</span>
+                <span>Cama: 1 beliche</span>
+              </div>
+              <p class="room-card__highlight">Prático, ventilado e com boa energia</p>
+              <p class="room-card__description">
+                Dormitório com 6 camas em beliche, espaço bem
+                distribuído e aquele clima de hostel de verdade.
+                Perfeito pra trocar histórias de viagem.
+              </p>
+              <span class="room-card__amenities-title">Incluso:</span>
+              <ul class="room-card__amenities">
+                <li>Roupa de cama e toalhas</li>
+                <li>Wi-Fi gratuito</li>
+                <li>Café da manhã</li>
+                <li>Acesso à cozinha compartilhada</li>
+              </ul>
+            </div>
+            <div class="room-card__footer">
+              <a href="https://wa.me/5571999999999?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20uma%20reserva%20no%20CasAMARelo%20Hostel.%0APer%C3%ADodo%3A%20%5Bcheck-in%5D%20a%20%5Bcheck-out%5D.%0AQuarto%20de%20interesse%3A%20Dormit%C3%B3rio%20com%206%20Camas.%0AN%C3%BAmero%20de%20h%C3%B3spedes%3A%20%5Bn%5D." target="_blank" rel="noopener noreferrer" class="btn-primary">Reservar Dormitório 6</a>
+            </div>
+          </div>
+
+          <!-- Card 3 — Quarto Duplo -->
+          <div class="room-card" data-animate data-animate-delay="3">
+            <div class="room-card__header-img">
+              <span class="badge badge--room-type room-card__type-badge">Conforto</span>
+              <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=600&q=80" alt="Foto do CasAMARelo Hostel em Salvador, Bahia" class="room-card__image" loading="lazy" width="600" height="450">
+            </div>
+            <div class="room-card__body">
+              <h3 class="room-card__name">Quarto Duplo Privativo</h3>
+              <div class="room-card__meta-list">
+                <span>Capacidade: Até 2 pessoas</span>
+                <span>Cama: 2 camas em beliche</span>
+              </div>
+              <p class="room-card__highlight">Privacidade com o melhor custo-benefício</p>
+              <p class="room-card__description">
+                Quarto privativo com espaço pra dois. Ideal pra casais
+                ou amigos que querem mais privacidade sem abrir mão
+                da vibe do hostel.
+              </p>
+              <span class="room-card__amenities-title">Incluso:</span>
+              <ul class="room-card__amenities">
+                <li>Roupa de cama e toalhas</li>
+                <li>Wi-Fi gratuito</li>
+                <li>Café da manhã</li>
+                <li>Uso da cozinha e lounge</li>
+              </ul>
+            </div>
+            <div class="room-card__footer">
+              <a href="https://wa.me/5571999999999?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20uma%20reserva%20no%20CasAMARelo%20Hostel.%0APer%C3%ADodo%3A%20%5Bcheck-in%5D%20a%20%5Bcheck-out%5D.%0AQuarto%20de%20interesse%3A%20Quarto%20Duplo%20Privativo.%0AN%C3%BAmero%20de%20h%C3%B3spedes%3A%20%5Bn%5D." target="_blank" rel="noopener noreferrer" class="btn-primary">Reservar Quarto Duplo</a>
+            </div>
+          </div>
+
+          <!-- Card 4 — Quarto Quádruplo -->
+          <div class="room-card" data-animate data-animate-delay="1">
+            <div class="room-card__header-img">
+              <span class="badge badge--room-type room-card__type-badge">Grupos</span>
+              <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=600&q=80" alt="Foto do CasAMARelo Hostel em Salvador, Bahia" class="room-card__image" loading="lazy" width="600" height="450">
+            </div>
+            <div class="room-card__body">
+              <h3 class="room-card__name">Quarto Quádruplo</h3>
+              <div class="room-card__meta-list">
+                <span>Capacidade: Até 4 pessoas</span>
+                <span>Cama: 1 cama de casal + 2 beliches</span>
+              </div>
+              <p class="room-card__highlight">Perfeito pra família ou grupo de amigos</p>
+              <p class="room-card__description">
+                Espaço generoso com cama de casal e beliches. O quarto
+                certo pra quem quer curtir junto, com privacidade e
+                conforto pra todo o grupo.
+              </p>
+              <span class="room-card__amenities-title">Incluso:</span>
+              <ul class="room-card__amenities">
+                <li>Roupa de cama e toalhas</li>
+                <li>Wi-Fi gratuito</li>
+                <li>Café da manhã</li>
+                <li>Acesso a todas as áreas comuns</li>
+              </ul>
+            </div>
+            <div class="room-card__footer">
+              <a href="https://wa.me/5571999999999?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20uma%20reserva%20no%20CasAMARelo%20Hostel.%0APer%C3%ADodo%3A%20%5Bcheck-in%5D%20a%20%5Bcheck-out%5D.%0AQuarto%20de%20interesse%3A%20Quarto%20Qu%C3%A1druplo.%0AN%C3%BAmero%20de%20h%C3%B3spedes%3A%20%5Bn%5D." target="_blank" rel="noopener noreferrer" class="btn-primary">Reservar Quádruplo</a>
+            </div>
+          </div>
+
+          <!-- Card 5 — Suíte Vista Mar -->
+          <div class="room-card" data-animate data-animate-delay="2">
+            <div class="room-card__header-img">
+              <span class="badge badge--sticker room-card__type-badge">Premium ★</span>
+              <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=600&q=80" alt="Foto do CasAMARelo Hostel em Salvador, Bahia" class="room-card__image" loading="lazy" width="600" height="450">
+            </div>
+            <div class="room-card__body">
+              <h3 class="room-card__name">Suíte com Vista do Mar</h3>
+              <div class="room-card__meta-list">
+                <span>Capacidade: Até 4 pessoas</span>
+                <span>Cama: 1 cama de casal + 2 beliches</span>
+              </div>
+              <p class="room-card__highlight">Acorda com o Atlântico na janela</p>
+              <p class="room-card__description">
+                Nossa joia. Suíte privativa com vista para o mar da Barra,
+                cama de casal e beliches. Você abre a janela e o oceano
+                tá ali. Café da manhã com esse cenário é outra coisa.
+              </p>
+              <span class="room-card__amenities-title">Incluso:</span>
+              <ul class="room-card__amenities">
+                <li>Vista para o mar</li>
+                <li>Roupa de cama e toalhas</li>
+                <li>Wi-Fi gratuito</li>
+                <li>Café da manhã</li>
+                <li>Acesso a todas as áreas comuns</li>
+              </ul>
+            </div>
+            <div class="room-card__footer">
+              <a href="https://wa.me/5571999999999?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20uma%20reserva%20no%20CasAMARelo%20Hostel.%0APer%C3%ADodo%3A%20%5Bcheck-in%5D%20a%20%5Bcheck-out%5D.%0AQuarto%20de%20interesse%3A%20Su%C3%ADte%20com%20Vista%20do%20Mar.%0AN%C3%BAmero%20de%20h%C3%B3spedes%3A%20%5Bn%5D." target="_blank" rel="noopener noreferrer" class="btn-primary">Reservar Suíte Vista Mar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIVISOR DE AZULEJO -->
+    <div class="divider-azulejo" aria-hidden="true"></div>
+
+    <!-- DIFERENCIAIS / POR QUE NÓS -->
+    <section id="diferenciais" class="section section--creme">
+      <div class="container">
+        <div class="section-header section-header--center" data-animate>
+          <span class="eyebrow">Por que a CasAMARelo</span>
+          <h2 class="heading-display">Três motivos pra não ficar em outro lugar.</h2>
+        </div>
+
+        <div class="grid-3col">
+          <div class="feature-card" data-animate data-animate-delay="1">
+            <span class="feature-card__icon" aria-hidden="true">📍</span>
+            <h3 class="feature-card__title">Localização Nota 9.7</h3>
+            <p class="feature-card__text">
+              Na Barra, a 2 minutos a pé da praia. Farol da Barra
+              a menos de 1 km. Porto da Barra, bares, restaurantes
+              e transporte — tudo no entorno.
+            </p>
+          </div>
+
+          <div class="feature-card" data-animate data-animate-delay="2">
+            <span class="feature-card__icon" aria-hidden="true">🤝</span>
+            <h3 class="feature-card__title">Clima de Casa, Alma de Viagem</h3>
+            <p class="feature-card__text">
+              Lounge compartilhado, cozinha equipada e café da manhã
+              que reúne gente do mundo inteiro. Aqui ninguém fica
+              sozinho — a não ser que queira.
+            </p>
+          </div>
+
+          <div class="feature-card" data-animate data-animate-delay="3">
+            <span class="feature-card__icon" aria-hidden="true">💰</span>
+            <h3 class="feature-card__title">Do Dormitório à Suíte com Vista Mar</h3>
+            <p class="feature-card__text">
+              Opções pra todo bolso. Dormitório social a partir de
+              valores acessíveis até suíte privativa com vista
+              pro Atlântico. Sempre com café da manhã incluso.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIVISOR DE AZULEJO -->
+    <div class="divider-azulejo" aria-hidden="true"></div>
+
+    <!-- COMODIDADES / ESTRUTURA SECTION -->
+    <section id="estrutura" class="section section--verde">
+      <div class="container">
+        <div class="section-header section-header--center" data-animate>
+          <span class="eyebrow">Estrutura</span>
+          <h2 class="heading-display">Tudo que você precisa. Nada que você não usa.</h2>
+        </div>
+
+        <div class="amenities-grid" data-animate>
+          <div class="amenity-item">
+            <span class="amenity-item__icon" aria-hidden="true">📶</span>
+            <span>Wi-Fi gratuito em toda a propriedade</span>
+          </div>
+          <div class="amenity-item">
+            <span class="amenity-item__icon" aria-hidden="true">☕</span>
+            <span>Café da manhã continental e à la carte</span>
+          </div>
+          <div class="amenity-item">
+            <span class="amenity-item__icon" aria-hidden="true">🍳</span>
+            <span>Cozinha compartilhada equipada</span>
+          </div>
+          <div class="amenity-item">
+            <span class="amenity-item__icon" aria-hidden="true">🛋️</span>
+            <span>Lounge de convivência com TV</span>
+          </div>
+          <div class="amenity-item">
+            <span class="amenity-item__icon" aria-hidden="true">🏖️</span>
+            <span>Beira-mar — 2 minutos a pé da praia</span>
+          </div>
+          <div class="amenity-item">
+            <span class="amenity-item__icon" aria-hidden="true">🧺</span>
+            <span>Roupa de cama e toalhas inclusas</span>
+          </div>
+          <div class="amenity-item">
+            <span class="amenity-item__icon" aria-hidden="true">🔒</span>
+            <span>Armários individuais nos dormitórios</span>
+          </div>
+          <div class="amenity-item">
+            <span class="amenity-item__icon" aria-hidden="true">🚭</span>
+            <span>Ambiente 100% não fumante</span>
+          </div>
+          <div class="amenity-item">
+            <span class="amenity-item__icon" aria-hidden="true">🌊</span>
+            <span>Quartos com vista para a cidade (suíte com vista mar)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIVISOR DE AZULEJO -->
+    <div class="divider-azulejo" aria-hidden="true"></div>
+
+    <!-- LOCALIZAÇÃO SECTION -->
+    <section id="localizacao" class="section section--creme">
+      <div class="container">
+        <div class="grid-2col">
+          <div data-animate>
+            <span class="eyebrow">Localização</span>
+            <h2 class="heading-display" style="margin-bottom: var(--space-lg);">
+              No coração da Barra. No coração de Salvador.
+            </h2>
+
+            <div class="location-address-box">
+              <p class="location-address">Rua Barão de Itapoan, 53 — Barra</p>
+              <p class="location-cep">Salvador, Bahia · CEP 40140-060</p>
+            </div>
+
+            <p style="font-family: var(--font-ui); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--azul-colonial); margin-bottom: var(--space-md);">
+              O que tem por perto:
+            </p>
+
+            <ul class="proximity-list">
+              <li class="proximity-item">
+                <span class="proximity-name"><span aria-hidden="true">🏖️</span> Praia da Barra</span>
+                <span class="proximity-dist">2 min a pé</span>
+              </li>
+              <li class="proximity-item">
+                <span class="proximity-name"><span aria-hidden="true">🗼</span> Farol da Barra</span>
+                <span class="proximity-dist">menos de 1 km</span>
+              </li>
+              <li class="proximity-item">
+                <span class="proximity-name"><span aria-hidden="true">🌅</span> Porto da Barra</span>
+                <span class="proximity-dist">1,2 km</span>
+              </li>
+              <li class="proximity-item">
+                <span class="proximity-name"><span aria-hidden="true">⛪</span> Pelourinho</span>
+                <span class="proximity-dist">6,7 km</span>
+              </li>
+              <li class="proximity-item">
+                <span class="proximity-name"><span aria-hidden="true">🏛️</span> Elevador Lacerda</span>
+                <span class="proximity-dist">6,8 km</span>
+              </li>
+              <li class="proximity-item">
+                <span class="proximity-name"><span aria-hidden="true">✈️</span> Aeroporto Internacional</span>
+                <span class="proximity-dist">27 km</span>
+              </li>
+            </ul>
+
+            <p class="location-footnote">
+              <span aria-hidden="true">💕</span> Casais deram nota 9,3 para viagem a dois.
+            </p>
+
+            <a href="https://maps.google.com/?q=Rua+Barão+de+Itapoan+53+Barra+Salvador+Bahia" target="_blank" rel="noopener noreferrer" class="btn-primary">
+              Ver no Google Maps
+            </a>
+          </div>
+
+          <div class="map-container" data-animate data-animate-delay="1">
+            <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=800&q=80" alt="Mapa mostrando localização do CasAMARelo Hostel na Barra, Salvador" loading="lazy" width="800" height="600">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIVISOR DE AZULEJO -->
+    <div class="divider-azulejo" aria-hidden="true"></div>
+
+    <!-- DEPOIMENTOS / AVALIAÇÕES SECTION -->
+    <section id="avaliacoes" class="section section--verde">
+      <div class="container">
+        <div class="section-header section-header--center" data-animate>
+          <span class="eyebrow">O que dizem os hóspedes</span>
+          <h2 class="heading-display">475+ avaliações. Nota 8.6 Fabuloso.</h2>
+        </div>
+
+        <div style="text-align: center;" data-animate>
+          <div class="reviews-summary-badge">
+            <span class="reviews-score">8.6 / 10 — Fabuloso</span>
+            <span class="reviews-source">Fonte: Booking.com · 475+ avaliações verificadas</span>
+          </div>
+        </div>
+
+        <div class="grid-3col">
+          <!-- Depoimento 1 -->
+          <div class="testimonial" data-animate data-animate-delay="1">
+            <p class="testimonial__quote">
+              "A localização é simplesmente perfeita. Saí do hostel
+              e em dois minutos já estava na praia. O café da manhã
+              é ótimo e o pessoal é super acolhedor."
+            </p>
+            <div class="testimonial__footer">
+              <span class="testimonial__author">— Mariana, São Paulo</span>
+              <span class="testimonial__score">Nota: 9.2</span>
+            </div>
+          </div>
+
+          <!-- Depoimento 2 -->
+          <div class="testimonial" data-animate data-animate-delay="2">
+            <p class="testimonial__quote">
+              "Viajei sozinho e fiz amizade logo no primeiro dia.
+              O lounge é um ponto de encontro incrível. Voltarei
+              com certeza."
+            </p>
+            <div class="testimonial__footer">
+              <span class="testimonial__author">— Lucas, Rio de Janeiro</span>
+              <span class="testimonial__score">Nota: 8.8</span>
+            </div>
+          </div>
+
+          <!-- Depoimento 3 -->
+          <div class="testimonial" data-animate data-animate-delay="3">
+            <p class="testimonial__quote">
+              "A suíte com vista pro mar superou todas as expectativas.
+              Acordar com esse cenário não tem preço. Recomendo demais
+              pra casais."
+            </p>
+            <div class="testimonial__footer">
+              <span class="testimonial__author">— Camila e Rafael, Belo Horizonte</span>
+              <span class="testimonial__score">Nota: 9.5</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIVISOR DE AZULEJO -->
+    <div class="divider-azulejo" aria-hidden="true"></div>
+
+    <!-- VOLUNTARIADO SECTION -->
+    <section id="voluntariado" class="section section--creme">
+      <div class="container">
+        <div class="section-header section-header--center" data-animate>
+          <span class="eyebrow">Voluntariado & Worldpackers</span>
+          <h2 class="heading-display">Venha fazer parte da nossa família com voluntários de todo o mundo.</h2>
+          <p class="section-subtitle">
+            Somos um espaço compartilhado de muito afeto e trocas verdadeiras, onde quem chega se sente em casa e parte do todo. Todos são bem-vinda/es!
+          </p>
+        </div>
+
+        <!-- Badges de Reconhecimento Worldpackers -->
+        <div style="text-align: center; margin-bottom: var(--space-2xl);" data-animate>
+          <div style="display: inline-flex; flex-wrap: wrap; justify-content: center; gap: var(--space-sm); background: var(--surface-card); padding: var(--space-md) var(--space-xl); border-radius: var(--radius-pill); box-shadow: var(--shadow-card); border: 1px solid var(--creme-escuro);">
+            <span style="font-family: var(--font-ui); font-weight: 700; color: var(--verde-mata); font-size: 14px;">⭐ 5.0 / 5.0 no Worldpackers</span>
+            <span style="color: var(--creme-escuro);">•</span>
+            <span style="font-family: var(--font-ui); font-weight: 700; color: var(--vermelho-terra); font-size: 14px;">🏆 Top Anfitrião (171+ Avaliações)</span>
+            <span style="color: var(--creme-escuro);">•</span>
+            <span style="font-family: var(--font-ui); font-weight: 600; color: var(--azul-colonial); font-size: 14px;">💬 Anfitriã Inayá</span>
+          </div>
+        </div>
+
+        <!-- Grid de Vagas / Habilidades de Troca -->
+        <div class="grid-2col" style="margin-bottom: var(--space-3xl);">
+          <div data-animate>
+            <h3 style="font-family: var(--font-display); font-size: var(--text-h2); color: var(--verde-mata); margin-bottom: var(--space-md);">
+              Como você pode colaborar:
+            </h3>
+            <div style="display: flex; flex-direction: column; gap: var(--space-md);">
+              <div style="background: var(--surface-card); padding: var(--space-lg); border-radius: var(--radius-md); border-left: 4px solid var(--amarelo-dende); box-shadow: var(--shadow-card);">
+                <h4 style="font-family: var(--font-ui); font-size: 1.125rem; font-weight: 700; color: var(--verde-mata); margin-bottom: 4px;">🎨 Pintura, Decoração & Artes</h4>
+                <p style="font-family: var(--font-body); font-size: var(--text-body-sm); color: var(--text-muted);">
+                  Ajude a pintar, redecorar e criar intervenções artísticas nas paredes e espaços. Artes são bem-vindas em todas as formas!
+                </p>
+              </div>
+
+              <div style="background: var(--surface-card); padding: var(--space-lg); border-radius: var(--radius-md); border-left: 4px solid var(--vermelho-terra); box-shadow: var(--shadow-card);">
+                <h4 style="font-family: var(--font-ui); font-size: 1.125rem; font-weight: 700; color: var(--verde-mata); margin-bottom: 4px;">🍳 Cozinha Afetiva & Café da Manhã</h4>
+                <p style="font-family: var(--font-body); font-size: var(--text-body-sm); color: var(--text-muted);">
+                  Colabore na preparação do nosso café da manhã continental e compartilhe refeições afetivas com a casa.
+                </p>
+              </div>
+
+              <div style="background: var(--surface-card); padding: var(--space-lg); border-radius: var(--radius-md); border-left: 4px solid var(--azul-colonial); box-shadow: var(--shadow-card);">
+                <h4 style="font-family: var(--font-ui); font-size: 1.125rem; font-weight: 700; color: var(--verde-mata); margin-bottom: 4px;">📱 Mídias Sociais & Eventos</h4>
+                <p style="font-family: var(--font-body); font-size: var(--text-body-sm); color: var(--text-muted);">
+                  Ajude a registrar momentos incríveis, criar conteúdos para redes sociais e organizar vivências culturais.
+                </p>
+              </div>
+
+              <div style="background: var(--surface-card); padding: var(--space-lg); border-radius: var(--radius-md); border-left: 4px solid var(--verde-folha); box-shadow: var(--shadow-card);">
+                <h4 style="font-family: var(--font-ui); font-size: 1.125rem; font-weight: 700; color: var(--verde-mata); margin-bottom: 4px;">🧹 Recepção & Convivência</h4>
+                <p style="font-family: var(--font-body); font-size: var(--text-body-sm); color: var(--text-muted);">
+                  Acolha viajantes do mundo inteiro, auxiliando no dia a dia do hostel e trocando experiências inesquecíveis.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div data-animate data-animate-delay="1">
+            <h3 style="font-family: var(--font-display); font-size: var(--text-h2); color: var(--verde-mata); margin-bottom: var(--space-md);">
+              O que você recebe na troca:
+            </h3>
+            <div style="background: var(--surface-card); padding: var(--space-xl); border-radius: var(--radius-lg); box-shadow: var(--shadow-card); margin-bottom: var(--space-lg);">
+              <ul style="list-style: none; display: flex; flex-direction: column; gap: var(--space-md); font-family: var(--font-body); font-size: var(--text-body-sm); color: var(--text-on-light);">
+                <li style="display: flex; align-items: center; gap: var(--space-sm);">
+                  <span style="font-size: 1.25rem;">🛏️</span>
+                  <span><strong>Quarto Compartilhado:</strong> Cama confortável em ambiente acolhedor.</span>
+                </li>
+                <li style="display: flex; align-items: center; gap: var(--space-sm);">
+                  <span style="font-size: 1.25rem;">☕</span>
+                  <span><strong>Café da Manhã Gratuito:</strong> Todos os dias da sua estadia.</span>
+                </li>
+                <li style="display: flex; align-items: center; gap: var(--space-sm);">
+                  <span style="font-size: 1.25rem;">🗓️</span>
+                  <span><strong>2 Dias Livres por Semana:</strong> Bastante tempo para explorar a Barra e Salvador.</span>
+                </li>
+                <li style="display: flex; align-items: center; gap: var(--space-sm);">
+                  <span style="font-size: 1.25rem;">🧺</span>
+                  <span><strong>Lavanderia & Cozinha Equipada:</strong> Uso gratuito para cozinhar e lavar suas roupas.</span>
+                </li>
+                <li style="display: flex; align-items: center; gap: var(--space-sm);">
+                  <span style="font-size: 1.25rem;">📶</span>
+                  <span><strong>Wi-Fi de Alta Velocidade:</strong> Perfeito para quem trabalha remotamente.</span>
+                </li>
+                <li style="display: flex; align-items: center; gap: var(--space-sm);">
+                  <span style="font-size: 1.25rem;">🧘</span>
+                  <span><strong>Terapias Holísticas:</strong> Participação gratuita em atividades terapêuticas no espaço.</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Depoimento de Voluntário -->
+            <div class="testimonial" style="border-left-color: var(--vermelho-terra);">
+              <p class="testimonial__quote" style="font-size: 0.9375rem;">
+                "Foi incrível! Muito bom. Me senti muito acolhido na CasAMARelo. Com certeza voltarei, pois já é um lugar que se tornou parte da minha vida. As tarefas e carga horária foram superfáceis e equilibradas. A anfitriã Inayá é uma verdadeira mãe da casa."
+              </p>
+              <div class="testimonial__footer">
+                <span class="testimonial__author">— Eduardo, Voluntário Worldpackers</span>
+                <span class="testimonial__score">Nota 5.0 ★</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align: center;" data-animate>
+          <a href="https://www.worldpackers.com" target="_blank" rel="noopener noreferrer" class="btn-primary" style="background-color: var(--vermelho-terra); color: var(--creme-areia);">
+            Ver Vagas no Worldpackers
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section id="faq" class="section section--creme">
+      <div class="container">
+        <div class="section-header section-header--center" data-animate>
+          <span class="eyebrow">Perguntas Frequentes</span>
+          <h2 class="heading-display">Ficou com dúvida? A gente responde.</h2>
+        </div>
+
+        <div class="accordion-list" data-animate>
+          <!-- Pergunta 1 -->
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-ans-1" id="faq-req-1">
+              <span>Qual o horário de check-in e check-out?</span>
+              <svg class="accordion-trigger__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" fill="currentColor"/>
+              </svg>
+            </button>
+            <div id="faq-ans-1" class="accordion-content" aria-labelledby="faq-req-1" hidden>
+              <p>
+                Check-in a partir das 14h. Check-out até as 12h.
+                Chegou antes? Pode deixar a bagagem com a gente
+                e ir curtir a praia.
+              </p>
+            </div>
+          </div>
+
+          <!-- Pergunta 2 -->
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-ans-2" id="faq-req-2">
+              <span>O café da manhã está incluso na diária?</span>
+              <svg class="accordion-trigger__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" fill="currentColor"/>
+              </svg>
+            </button>
+            <div id="faq-ans-2" class="accordion-content" aria-labelledby="faq-req-2" hidden>
+              <p>
+                Sim! Servimos café da manhã continental e à la carte
+                todos os dias. Pão, frutas, tapioca, café e suco
+                — do jeitinho baiano.
+              </p>
+            </div>
+          </div>
+
+          <!-- Pergunta 3 -->
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-ans-3" id="faq-req-3">
+              <span>Tem estacionamento?</span>
+              <svg class="accordion-trigger__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" fill="currentColor"/>
+              </svg>
+            </button>
+            <div id="faq-ans-3" class="accordion-content" aria-labelledby="faq-req-3" hidden>
+              <p>
+                Não temos estacionamento próprio, mas há opções
+                de estacionamento pago nas redondezas da Barra.
+                Podemos indicar os mais próximos.
+              </p>
+            </div>
+          </div>
+
+          <!-- Pergunta 4 -->
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-ans-4" id="faq-req-4">
+              <span>Como faço uma reserva direta?</span>
+              <svg class="accordion-trigger__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" fill="currentColor"/>
+              </svg>
+            </button>
+            <div id="faq-ans-4" class="accordion-content" aria-labelledby="faq-req-4" hidden>
+              <p>
+                Você pode reservar direto pelo WhatsApp clicando
+                no botão "Reservar Agora". Reserva direta = melhor
+                preço garantido, sem taxa de intermediário.
+              </p>
+            </div>
+          </div>
+
+          <!-- Pergunta 5 -->
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-ans-5" id="faq-req-5">
+              <span>Aceitam pagamento em cartão / Pix?</span>
+              <svg class="accordion-trigger__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" fill="currentColor"/>
+              </svg>
+            </button>
+            <div id="faq-ans-5" class="accordion-content" aria-labelledby="faq-req-5" hidden>
+              <p>
+                Aceitamos Pix, cartão de crédito e débito.
+                Na reserva direta via WhatsApp, Pix tem condição
+                especial.
+              </p>
+            </div>
+          </div>
+
+          <!-- Pergunta 6 -->
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-ans-6" id="faq-req-6">
+              <span>Qual a política de cancelamento?</span>
+              <svg class="accordion-trigger__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" fill="currentColor"/>
+              </svg>
+            </button>
+            <div id="faq-ans-6" class="accordion-content" aria-labelledby="faq-req-6" hidden>
+              <p>
+                Cancelamento gratuito até 48h antes do check-in.
+                Após esse prazo, cobra-se a primeira diária.
+                Consulte condições pelo WhatsApp.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIVISOR DE AZULEJO -->
+    <div class="divider-azulejo" aria-hidden="true"></div>
+
+    <!-- CTA FINAL / RESERVA SECTION -->
+    <section id="reservar" class="section section--vermelho grain">
+      <div class="container">
+        <div class="cta-final-box" data-animate>
+          <h2 class="heading-display" style="margin-bottom: var(--space-md);">
+            Salvador tá te esperando.<br>
+            A CasAMARelo também.
+          </h2>
+          <p class="section-subtitle" style="margin-bottom: var(--space-2xl); font-size: 1.25rem;">
+            Reserve direto pelo WhatsApp e garanta o melhor preço.
+          </p>
+
+          <div class="hero-ctas" style="justify-content: center;">
+            <a href="https://wa.me/5571999999999?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20uma%20reserva%20no%20CasAMARelo%20Hostel.%0APer%C3%ADodo%3A%20%5Bcheck-in%5D%20a%20%5Bcheck-out%5D.%0AQuarto%20de%20interesse%3A%20%5Btipo%5D.%0AN%C3%BAmero%20de%20h%C3%B3spedes%3A%20%5Bn%5D." target="_blank" rel="noopener noreferrer" class="btn-primary" style="background-color: var(--amarelo-dende); color: var(--verde-mata);">
+              Reservar pelo WhatsApp
+            </a>
+            <a href="https://www.booking.com" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+              Ver no Booking.com
+            </a>
+          </div>
+
+          <div class="cta-final-badges">
+            <span class="badge badge--room-type" style="background: rgba(253, 251, 247, 0.15); color: var(--creme-areia); border-color: rgba(245, 230, 200, 0.3);">Reserva Direta = Melhor Preço</span>
+            <span class="badge badge--room-type" style="background: rgba(253, 251, 247, 0.15); color: var(--creme-areia); border-color: rgba(245, 230, 200, 0.3);">A 2 min da praia</span>
+            <span class="badge badge--room-type" style="background: rgba(253, 251, 247, 0.15); color: var(--creme-areia); border-color: rgba(245, 230, 200, 0.3);">Nota 8.6 · 475+ avaliações</span>
+            <span class="badge badge--room-type" style="background: rgba(253, 251, 247, 0.15); color: var(--creme-areia); border-color: rgba(245, 230, 200, 0.3);">Nota 9.3 para casais</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer id="contato" class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Coluna 1 — Marca -->
+        <div>
+          <h3 class="footer-brand-name">CasAMARelo Hostel</h3>
+          <p class="footer-brand-sub">Barra · Salvador · Bahia</p>
+          <p class="footer-quote">"Seu refúgio na Barra."</p>
+        </div>
+
+        <!-- Coluna 2 — Navegação -->
+        <div>
+          <h4 class="footer-col-title">Navegação</h4>
+          <ul class="footer-nav-list">
+            <li><a href="#sobre" class="footer-nav-link">Sobre</a></li>
+            <li><a href="#quartos" class="footer-nav-link">Quartos</a></li>
+            <li><a href="#estrutura" class="footer-nav-link">Estrutura</a></li>
+            <li><a href="#localizacao" class="footer-nav-link">Localização</a></li>
+            <li><a href="#avaliacoes" class="footer-nav-link">Avaliações</a></li>
+            <li><a href="#voluntariado" class="footer-nav-link">Voluntariado</a></li>
+            <li><a href="#faq" class="footer-nav-link">FAQ</a></li>
+            <li><a href="#contato" class="footer-nav-link">Contato</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna 3 — Contato -->
+        <div>
+          <h4 class="footer-col-title">Contato</h4>
+          <ul class="footer-contact-list">
+            <li class="footer-contact-item">
+              <span aria-hidden="true">📍</span>
+              <span>Rua Barão de Itapoan, 53 — Barra, Salvador/BA</span>
+            </li>
+            <li class="footer-contact-item">
+              <span aria-hidden="true">📱</span>
+              <span>WhatsApp: (71) XXXXX-XXXX</span>
+            </li>
+            <li class="footer-contact-item">
+              <span aria-hidden="true">📧</span>
+              <span>contato@casamarelohostel.com.br</span>
+            </li>
+            <li class="footer-contact-item">
+              <span aria-hidden="true">📸</span>
+              <span>@casamarelohostel</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 CasAMARelo Hostel. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       BOTÃO FLUTUANTE WHATSAPP (MOBILE / FIXED FAB)
+       ========================================================================== -->
+  <a href="https://wa.me/5571999999999?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20uma%20reserva%20no%20CasAMARelo%20Hostel.%0APer%C3%ADodo%3A%20%5Bcheck-in%5D%20a%20%5Bcheck-out%5D.%0AQuarto%20de%20interesse%3A%20%5Btipo%5D.%0AN%C3%BAmero%20de%20h%C3%B3spedes%3A%20%5Bn%5D." target="_blank" rel="noopener noreferrer" class="fab-whatsapp" aria-label="Reservar pelo WhatsApp">
+    <svg class="fab-whatsapp__icon" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12.012 2c-5.508 0-9.989 4.478-9.99 9.984 0 1.764.46 3.486 1.332 5.006l-1.416 5.17 5.291-1.387c1.472.802 3.13 1.225 4.78 1.225h.005c5.508 0 9.99-4.479 9.991-9.986 0-2.668-1.038-5.176-2.924-7.063a9.923 9.923 0 0 0-7.069-2.949zm5.908 14.397c-.247.697-1.436 1.331-1.996 1.411-.51.074-1.168.106-1.884-.124-.434-.139-1.002-.326-1.745-.648-3.096-1.341-5.111-4.498-5.267-4.707-.156-.208-1.266-1.688-1.266-3.22 0-1.533.799-2.287 1.085-2.599.286-.312.624-.39.832-.39.208 0 .416.002.598.01.195.009.457-.074.715.546.26.623.884 2.158.962 2.314.078.156.13.338.026.546-.104.208-.156.338-.312.52-.156.182-.328.406-.468.546-.156.156-.318.326-.136.638.182.312.81 1.336 1.737 2.164 1.19 1.061 2.19 1.39 2.502 1.546.312.156.495.13.677-.078.182-.208.78-.91.988-1.222.208-.312.416-.26.697-.156.281.104 1.789.844 2.096.998.307.156.512.234.587.364.075.13.075.754-.172 1.451z"/>
+    </svg>
+    <span>Reservar</span>
+  </a>
+
+  <!-- ==========================================================================
+       JAVASCRIPT FUNCIONALIDADES
+       ========================================================================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      /* ------------------------------------------------------------------------
+         1. Menu Mobile Dropdown / Drawer
+         ------------------------------------------------------------------------ */
+      const menuToggle = document.getElementById('menu-toggle');
+      const mainNav = document.getElementById('main-nav');
+      const navLinks = document.querySelectorAll('.nav-link, .btn-nav');
+
+      if (menuToggle && mainNav) {
+        menuToggle.addEventListener('click', () => {
+          const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+          menuToggle.setAttribute('aria-expanded', !isExpanded);
+          mainNav.classList.toggle('is-active');
+        });
+
+        // Fechar menu ao clicar em um link de navegação
+        navLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            if (mainNav.classList.contains('is-active')) {
+              menuToggle.setAttribute('aria-expanded', 'false');
+              mainNav.classList.remove('is-active');
+            }
+          });
+        });
+
+        // Fechar com a tecla ESC
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && mainNav.classList.contains('is-active')) {
+            menuToggle.setAttribute('aria-expanded', 'false');
+            mainNav.classList.remove('is-active');
+            menuToggle.focus();
+          }
+        });
+      }
+
+      /* ------------------------------------------------------------------------
+         2. Acordeão / FAQ Acessível
+         ------------------------------------------------------------------------ */
+      const accordionTriggers = document.querySelectorAll('.accordion-trigger');
+
+      accordionTriggers.forEach(trigger => {
+        trigger.addEventListener('click', () => {
+          const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+          const contentId = trigger.getAttribute('aria-controls');
+          const content = document.getElementById(contentId);
+
+          // Fechar outros itens abertos (modo acordeão exclusivo)
+          accordionTriggers.forEach(otherTrigger => {
+            if (otherTrigger !== trigger) {
+              otherTrigger.setAttribute('aria-expanded', 'false');
+              const otherContentId = otherTrigger.getAttribute('aria-controls');
+              const otherContent = document.getElementById(otherContentId);
+              if (otherContent) otherContent.hidden = true;
+            }
+          });
+
+          // Toggle estado atual
+          trigger.setAttribute('aria-expanded', !isExpanded);
+          if (content) {
+            content.hidden = isExpanded;
+          }
+        });
+      });
+
+      /* ------------------------------------------------------------------------
+         3. Animações por Scroll (Intersection Observer)
+         ------------------------------------------------------------------------ */
+      const animatedElements = document.querySelectorAll('[data-animate]');
+
+      if ('IntersectionObserver' in window) {
+        const observerOptions = {
+          root: null,
+          rootMargin: '0px 0px -50px 0px',
+          threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              obs.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        animatedElements.forEach(el => observer.observe(el));
+      } else {
+        // Fallback para navegadores antigos sem observer
+        animatedElements.forEach(el => el.classList.add('is-visible'));
+      }
+
+    });
+  </script>
+</body>
+</html>
